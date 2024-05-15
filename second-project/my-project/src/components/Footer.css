@@ -1,0 +1,17 @@
+.footer {
+    display: block; /* Para que o link ocupe toda a largura disponível */
+    text-align: center; /* Centralizar o texto dentro do link */
+    margin-top: 20px; /* Espaçamento superior para separar do conteúdo acima */
+  }
+  
+  /* Posicionamento fixo na parte inferior da página */
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%; /* Para ocupar toda a largura da página */
+    background-color: #3f8acc; /* Cor de fundo do rodapé */
+    color: #ffffff; /* Cor do texto do link */
+    padding: 10px 0; /* Espaçamento interno para melhorar a aparência */
+  }
+  

@@ -1,27 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./SearchMovie.css";
 
-function SearchMovie() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchResult, setSearchResult] = useState(null);
-
-  const searchMovie = async () => {
-    try {
-      if (searchTerm.trim() !== "") {
-        const response = await fetch(
-          `https://api.themoviedb.org/3/search/movie?api_key=7db23c4b790699b68db5d3675a14c072&query=${searchTerm}`
-        );
-        const data = await response.json();
-        setSearchResult(data.results);
-      }
-    } catch (error) {
-      console.error("Error searching movies:", error);
-    }
-  };
-  console.log(searchResult);
+function SearchMovie({ searchMovie, searchTerm, setSearchTerm, searchResult }) {
   return (
     <div>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginBottom: "20px",
+          marginTop: "90px",
+        }}
+      >
         <input
           type="text"
           value={searchTerm}
@@ -52,7 +43,7 @@ function SearchMovie() {
             </Link>
           ))
         ) : (
-          <p>No movies found.</p>
+          <p>Nenhum filme encontrado.</p>
         )}
       </div>
     </div>

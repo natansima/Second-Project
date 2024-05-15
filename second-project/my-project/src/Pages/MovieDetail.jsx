@@ -1,39 +1,34 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
-function MovieDetail() {
+function MovieDetail({ searchResult, addToWishlist }) {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
-  const [wishlist, setWishlist] = useState([]);
+
+  // TO DO: Find a way to make a request to the api if no found movie
+  const fetchMovieDetails = async (id) => {
+    try {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${id}?api_key=7db23c4b790699b68db5d3675a14c072`
+      );
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching movie details:", error);
+    }
+  };
 
   useEffect(() => {
-    // Carrega a lista de desejos do localStorage ao carregar a página
-    const storedWishlist = JSON.parse(localStorage.getItem("wishlist"));
-    if (storedWishlist) {
-      setWishlist(storedWishlist);
+    const foundMovie = searchResult.find(
+      (result) => result.id === Number(movieId)
+    );
+
+    if (!foundMovie) {
+      fetchMovieDetails(movieId).then((res) => setMovieDetails(res));
     }
 
-    const fetchMovieDetails = async () => {
-      try {
-        const response = await fetch(
-          `https://api.themoviedb.org/3/movie/${movieId}?api_key=7db23c4b790699b68db5d3675a14c072`
-        );
-        const data = await response.json();
-        setMovieDetails(data);
-      } catch (error) {
-        console.error("Error fetching movie details:", error);
-      }
-    };
-
-    fetchMovieDetails();
-  }, [movieId]);
-
-  const addToWishlist = () => {
-    const updatedWishlist = [...wishlist, movieDetails];
-    setWishlist(updatedWishlist);
-    // Atualiza a lista de desejos no localStorage
-    localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
-  };
+    setMovieDetails(foundMovie);
+  }, []);
 
   return (
     <div>
@@ -41,7 +36,9 @@ function MovieDetail() {
       {movieDetails ? (
         <div>
           <Link to="/">Back to Home</Link>
-          <button onClick={addToWishlist}>Add Wish List</button>
+          <button onClick={() => addToWishlist(movieDetails)}>
+            Add to Wish List
+          </button>
           <h3>{movieDetails.title}</h3>
           <img
             style={{
