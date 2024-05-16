@@ -1,18 +1,18 @@
 .header-container {
-    display: flex;
-    margin-top: 0px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0; /* Define o lado esquerdo como 0 para ocupar toda a largura */
-    background-color: #3f8acc;
-    color: #fff;
-    padding: 0;
+  display: flex;
+  margin-top: 0px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0; /* Define o lado esquerdo como 0 para ocupar toda a largura */
+  background-color: black;
+  color: #fff;
+  padding: 0;
 }
 
-
 .cabeçalho {
-    flex-grow: 1; /* Faz o texto ocupar o espaço restante */
-    margin: 0;
-    text-align: center; /* Centraliza o texto */
+  flex-grow: 1; /* Faz o texto ocupar o espaço restante */
+  margin: 0;
+  text-align: center; /* Centraliza o texto */
+  color: transparent;
 }

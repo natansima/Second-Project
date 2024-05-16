@@ -8,6 +8,8 @@ import HeaderFooter from "./components/HeaderFooter";
 import Navbar from "./components/Navbar";
 import FrontPage from "./Pages/FrontPage";
 import UpdateMovie from "./Pages/UpdateMovie";
+import About from "./Pages/About";
+import ErrorPage from "./Pages/ErrorPage";
 
 function App() {
   const [searchResult, setSearchResult] = useState([]);
@@ -49,14 +51,15 @@ function App() {
 
   return (
     <div>
-      <Navbar />
       <HeaderFooter />
+      <Navbar />
       <Routes>
         <Route
           path="/wishlist"
           element={<Wishlist wishlist={wishlist} deleteItem={deleteItem} />}
         />
         <Route path="/" element={<FrontPage />} />
+        <Route path="/about" element={<About />} />
         <Route
           path="/search"
           element={
@@ -83,6 +86,7 @@ function App() {
             <UpdateMovie wishlist={wishlist} updateWishlist={updateWishlist} />
           }
         />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   );

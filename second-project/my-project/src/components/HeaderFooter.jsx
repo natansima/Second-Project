@@ -6,8 +6,6 @@ export default function HeaderFooter() {
   return (
     <div>
       <Header />
-      {/* <div style={{ display: "flex", height: "100vh", width: "100vw" }}>
-      </div> */}
       <Footer />
     </div>
   );

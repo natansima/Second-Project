@@ -9,18 +9,27 @@ function Wishlist({ wishlist, deleteItem }) {
 
   return (
     <div>
-      <h2 className="title">My Wish List...</h2>
+      <h2 className="title">My Watch List...</h2>
       <div className="DENTRO">
         <div className="wrapper">
-          <div className="form-wrapper"></div>
-          <ul>
+          <ul className="form-wrapper">
             {wishlist.map((movie) => (
               <li id="card" key={movie.id}>
-                <Link to={`/update/${movie.id}`} className="card-link">
+                <button
+                  className="button-del"
+                  onClick={() => handleDelete(movie.id)}
+                >
+                  🗑️
+                </button>
+
+                <Link
+                  to={`/update/${movie.id}`}
+                  style={{ textDecoration: "none" }}
+                >
                   <div className="movie-info">
                     <p>{movie.title}</p>
-                    <p>{movie.overview}</p>
                   </div>
+
                   <div className="movie-poster-container">
                     <img
                       className="movie-poster"
@@ -28,13 +37,8 @@ function Wishlist({ wishlist, deleteItem }) {
                       alt={movie.title}
                     />
                   </div>
+                  <p className="overviewdet">{movie.overview}</p>
                 </Link>
-                <button
-                  className="button-del"
-                  onClick={() => handleDelete(movie.id)}
-                >
-                  🗑️
-                </button>
               </li>
             ))}
           </ul>

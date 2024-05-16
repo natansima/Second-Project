@@ -1,39 +1,33 @@
 .title {
-  display: flex;
+  position: fixed;
+  text-align: center;
+  left: 47%;
   justify-content: center;
-  margin-bottom: 20px; /* Add margin to space it from other elements */
-  margin-top: 90px; /* Add margin to space it from elements above */
-}
-
-.DENTRO {
-  color: black;
-}
-
-.wrapper {
-  display: flex;
-  margin-top: -180px;
-  margin-left: -50px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
 }
 
 #card {
   list-style-type: none;
   display: flex;
   flex-direction: column; /* Adjust to column layout */
-  align-items: center; /* Center content horizontally */
-  width: 100%;
   padding: 10px;
   border-radius: 18px;
   background-color: #afafaf;
   font-size: 15px;
   text-align: center;
+  width: 300px;
 }
 
 .movie-info {
-  margin-bottom: 5px; /* Add space between title and poster */
+  margin-bottom: 5px;
+  display: flex; /* Add space between title and poster */
+  justify-content: center;
+  gap: 15px;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 .movie-poster {
@@ -44,7 +38,12 @@
 
 .button-del {
   background-color: transparent;
-  border: none;
   cursor: pointer;
   font-size: 20px;
+  margin-left: 230px;
+}
+
+.overviewdet {
+  max-width: 300px;
+  text-decoration: none;
 }

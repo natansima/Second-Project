@@ -1,0 +1,67 @@
+/* About.css */
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container3 {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-container {
+  padding-top: 10px;
+  margin: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.button-with-icon {
+  border-radius: 70%;
+  background-color: #1a1a1a;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  margin-top: -9px;
+}
+
+.button-with-icon img {
+  border-radius: 70%;
+  width: 30px;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-container a {
+  margin-right: 10px;
+}
+
+.profile {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.link-container {
+  margin-top: 10px;
+}
+
+.about-paragraph {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 20px;
+}

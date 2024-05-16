@@ -9,6 +9,7 @@ import { FiMenu } from "react-icons/fi";
 const links = [
   { path: "/", text: "Home" },
   { path: "/wishlist", text: "Wish List" },
+  { path: "/search", text: "Search" },
 ];
 
 const Navbar = () => {
@@ -46,7 +47,11 @@ const Navbar = () => {
         <ul className={`menu-nav${navbarOpen ? " show-menu" : ""}`}>
           {links.map((link, index) => (
             <li key={index}>
-              <NavLink to={link.path} onClick={() => setNavbarOpen(false)}>
+              <NavLink
+                className="navbar-open"
+                to={link.path}
+                onClick={() => setNavbarOpen(false)}
+              >
                 {link.text}
               </NavLink>
             </li>

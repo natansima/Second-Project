@@ -1,4 +1,4 @@
-import SearchMovie from "./SearchMovie";
+import SearchMovie from "../components/SearchMovie";
 
 function SearchPage({ searchMovie, searchTerm, setSearchTerm, searchResult }) {
   return (

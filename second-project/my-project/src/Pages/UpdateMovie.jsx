@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import "./UpdateMovie.css";
 
 function UpdateMovie({ wishlist, updateWishlist }) {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
   const [editedTitle, setEditedTitle] = useState("");
   const [editedOverview, setEditedOverview] = useState("");
+  const [updateConcluded, setUpdateConcluded] = useState(false); // Estado para controlar se a atualização foi concluída
 
   useEffect(() => {
     const foundMovie = wishlist.find((movie) => movie.id === Number(movieId));
@@ -23,29 +25,40 @@ function UpdateMovie({ wishlist, updateWishlist }) {
       overview: editedOverview,
     };
     updateWishlist(updatedMovie);
-    // Assuming you have a proper routing setup, you might want to redirect here
+    setUpdateConcluded(true);
   };
 
   return (
-    <div>
-      <h2>Update Movie</h2>
+    <div className="update">
+      <h1>Update Movie</h1>
       {movieDetails ? (
         <div>
-          <Link to="/wishlist">Back to Wishlist</Link>
+          <Link to="/wishlist">
+            <button className="back-button" style={{ marginBottom: "20px" }}>
+              Back to Watch List
+            </button>
+          </Link>
           <div>
             <input
+              className="titleUp rounded-input"
               type="text"
               value={editedTitle}
               onChange={(e) => setEditedTitle(e.target.value)}
             />
           </div>
-          <div>
+          <div style={{ marginTop: "30px" }}>
             <textarea
+              className="overUp rounded-input"
               value={editedOverview}
               onChange={(e) => setEditedOverview(e.target.value)}
-            />
+            ></textarea>
           </div>
-          <button onClick={handleUpdate}>Update</button>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <button className="UpdateButton" onClick={handleUpdate}>
+              Update
+            </button>
+            {updateConcluded && <span>Update Concluded...</span>}
+          </div>
         </div>
       ) : (
         <p>Loading...</p>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import "./MovieDetail.css";
 
 function MovieDetail({ searchResult, addToWishlist }) {
   const { movieId } = useParams();
@@ -31,14 +32,20 @@ function MovieDetail({ searchResult, addToWishlist }) {
   }, []);
 
   return (
-    <div>
-      <h2>Movie Detail</h2>
+    <div className="movieDetails">
       {movieDetails ? (
         <div>
-          <Link to="/">Back to Home</Link>
-          <button onClick={() => addToWishlist(movieDetails)}>
-            Add to Wish List
-          </button>
+          <div className="divButtons">
+            <button className="back">
+              <Link to="/" className="button-link">
+                Back to Home
+              </Link>
+            </button>
+            <button onClick={() => addToWishlist(movieDetails)}>
+              Add to Watch List
+            </button>
+          </div>
+
           <h3>{movieDetails.title}</h3>
           <img
             style={{
@@ -48,7 +55,9 @@ function MovieDetail({ searchResult, addToWishlist }) {
             src={`https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`}
             alt={movieDetails.title}
           />
-          <p>{movieDetails.overview}</p>
+          <div className="text">
+            <p className="detailsText">{movieDetails.overview}</p>
+          </div>
           <p>{movieDetails.origin_country}</p>
         </div>
       ) : (

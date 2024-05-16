@@ -1,20 +1,38 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  max-width: 30%; /* Use porcentagem para largura máxima */
+  text-align: center;
 }
 
 h1 {
-  margin-bottom: 20px;
+  margin-bottom: 2%; /* Use porcentagem para a margem inferior */
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
+  padding: 2% 4%; /* Use porcentagem para o preenchimento */
+  font-size: 1.6vw; /* Use vw para o tamanho da fonte */
+  cursor: pointer;
   background-color: #007bff;
   color: white;
-  cursor: pointer;
+  border: none;
+  position: center;
+}
+
+#button:hover {
+  border-color: #edab3a;
+}
+
+.background-image {
+  background-image: url(/src/Images/homepage.gif);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+}
+
+#description {
+  max-width: 100%; /* Use porcentagem para largura máxima */
 }
