@@ -1,8 +1,8 @@
 import React from "react";
 import "./About.css";
-import profile2 from "../Images/natan.jpeg";
-import giticon from "../Images/github-icon.png";
-import linkedin from "../Images/linkedin-icon.png";
+const profile2 = "/Images/natan.jpeg";
+const giticon = "/Images/github-icon.png";
+const linkedin = "/Images/linkedin-icon.png";
 
 export default function About() {
   return (

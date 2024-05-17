@@ -7,7 +7,7 @@ function UpdateMovie({ wishlist, updateWishlist }) {
   const [movieDetails, setMovieDetails] = useState(null);
   const [editedTitle, setEditedTitle] = useState("");
   const [editedOverview, setEditedOverview] = useState("");
-  const [updateConcluded, setUpdateConcluded] = useState(false); // Estado para controlar se a atualização foi concluída
+  const [updateConcluded, setUpdateConcluded] = useState(false); // State para controlar se a atualização foi concluída
 
   useEffect(() => {
     const foundMovie = wishlist.find((movie) => movie.id === Number(movieId));
